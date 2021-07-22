@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import allure
+import pytest
 from locators import LoginLocators
 
 class LoginPage:
@@ -12,17 +14,25 @@ class LoginPage:
 		self.password_id = LoginLocators.password_id
 		self.password_button_xpath = LoginLocators.password_button_xpath
 		
-	def enter_mail(self, mail):
+	@allure.step('Вводим адрес')	
+	def step_enter_mail(self, mail):
 		self.driver.find_element_by_id(self.login_id).clear()
 		self.driver.find_element_by_id(self.login_id).send_keys(mail)
+		assert self.driver.find_element_by_id(self.login_id).is_displayed()
 		
-	def click_login(self):
+	@allure.step('Нажимаем на кнопку для ввода пароля')	
+	def step_click_login(self):
+		assert self.driver.find_element_by_xpath(self.login_button_xpath).is_displayed()
 		self.driver.find_element_by_xpath(self.login_button_xpath).click()
 		
-	def enter_password(self, password):
+	@allure.step('Вводим пароль')
+	def step_enter_password(self, password):
 		self.driver.find_element_by_id(self.password_id).clear()
 		self.driver.find_element_by_id(self.password_id).send_keys(password)
+		assert self.driver.find_element_by_id(self.password_id).is_displayed()
 
-	def click_password(self):
+	@allure.step('Нажимаем на кнопку для авторизации')
+	def step_click_password(self):
+		assert self.driver.find_element_by_xpath(self.password_button_xpath).is_displayed()
 		self.driver.find_element_by_xpath(self.password_button_xpath).click()
 	

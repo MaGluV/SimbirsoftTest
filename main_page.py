@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import allure
+import pytest
 from locators import MainPageLocators
 
 class MainPage:
@@ -9,5 +11,7 @@ class MainPage:
 		self.driver = driver
 		self.login_button_xpath = MainPageLocators.login_button_xpath
 		
-	def login_button_click(self):
+	@allure.step('Нажимаем на кнопку для входа на страницу авторизации')
+	def step_login_button_click(self):
+		assert self.driver.find_element_by_xpath(self.login_button_xpath).is_displayed()
 		self.driver.find_element_by_xpath(self.login_button_xpath).click()

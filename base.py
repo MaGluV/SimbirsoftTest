@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
@@ -25,8 +26,6 @@ class Base:
 			print("-----------------------------------------")
 			print("Tests is finished")
 			self.driver.close()
-			#self.driver.quit()
-			#,DesiredCapabilities.FIREFOX
 
 	
 	
