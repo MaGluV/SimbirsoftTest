@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 class Base:
-
+    
     @pytest.fixture(autouse=True)
     def set_up(self):
         self.TEST_TIMEOUT = 20
