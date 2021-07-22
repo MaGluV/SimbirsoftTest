@@ -1,4 +1,7 @@
 allure_reports/*
 geckodriver
 selenium-server-standalone-3.141.59.jar
+base/__pycache__/*
+locators/__pycache__/*
+pages/__pycache__/*
 __pycache__/*
